@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Circuit {{ circuit.id}}{% endblock %}
+
+{% block main %}
+<h1>Circuit {{circuit.id}}</h1>
+
+{{ dump(circuit) }}
+
+<table>
+    <thead>
+        <tr>
+            <th>Numéro</th>
+            <th>Ville</th>
+            <th>Nombre de jours</th>
+        </tr>
+    </thead>
+
+    {%  for etape in circuit.etapes %}
+        <tr>
+            <td>{{ etape.numeroEtape }}</td>
+            <td>{{ etape.villeEtape }}</td>
+            <td>{{ etape.nombreJours }}</td>
+        </tr>
+        {% endfor %} {# etapes #}
+</table>
+
+
+<a href="{{ path('frontoffice_home') }}">retour à l'accueil</a>
+{% endblock %}
