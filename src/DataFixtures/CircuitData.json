@@ -3,7 +3,7 @@
         "description": "Andalousie",
         "paysDepart": "Espagne",
         "villeDepart": "Grenade",
-        "villeArrivée": "Séville",
+        "villeArrivee": "Séville",
         "dureeCircuit": 4
     },
     {
@@ -11,7 +11,7 @@
         "description": "Vietnam",
         "paysDepart": "Vietnam",
         "villeDepart": "Hanoi",
-        "villeArrivée": "Hô Chi Minh",
+        "villeArrivee": "Hô Chi Minh",
         "dureeCircuit": 4
     },
     {
@@ -19,7 +19,7 @@
         "description": "Ile-de-France",
         "paysDepart": "France",
         "villeDepart": "Paris",
-        "villeArrivée": "Paris",
+        "villeArrivee": "Paris",
         "dureeCircuit": 2
     },
     {
@@ -27,7 +27,7 @@
         "description": "Italie",
         "paysDepart": "Italie",
         "villeDepart": "Milan",
-        "villeArrivée": "Rome",
+        "villeArrivee": "Rome",
         "dureeCircuit": 4
     }
 ]

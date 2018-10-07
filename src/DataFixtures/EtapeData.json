@@ -12,7 +12,7 @@
         }]
     },
     {
-        "circuit": "vitenam-circuit",
+        "circuit": "vietnam-circuit",
         "etapes": [{
             "ville": "Hanoï",
             "nombreJours": 1

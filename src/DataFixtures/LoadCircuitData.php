@@ -10,51 +10,22 @@ class LoadCircuitData extends Fixture
 {
 	public function load(ObjectManager $manager)
 	{		
-		$circuit = new Circuit();
-		$circuit->setDescription('Andalousie');
-		$circuit->setPaysDepart('Espagne');
-		$circuit->setVilleDepart('Grenade');
-		$circuit->setVilleArrivee('Séville');
-		$circuit->setDureeCircuit(4);
-		$manager->persist($circuit);
-		
-		$this->addReference('andalousie-circuit', $circuit);
-		
-		$circuit = new Circuit();
-		$circuit->setDescription('Vietnam');
-		$circuit->setPaysDepart('VietNam');
-		$circuit->setVilleDepart('Hanoi');
-		$circuit->setVilleArrivee('Hô Chi Minh');
-		$circuit->setDureeCircuit(4);
-		$manager->persist($circuit);
-		
-		$this->addReference('vietnam-circuit', $circuit);
-		
-		$circuit = new Circuit();
-		$circuit->setDescription('Ile de France');
-		$circuit->setPaysDepart('France');
-		$circuit->setVilleDepart('Paris');
-		$circuit->setVilleArrivee('Paris');
-		$circuit->setDureeCircuit(2);
-		$manager->persist($circuit);
-		
-		$this->addReference('idf-circuit', $circuit);
-		
-		$circuit = new Circuit();
-		$circuit->setDescription('Italie');
-		$circuit->setPaysDepart('Italie');
-		$circuit->setVilleDepart('Milan');
-		$circuit->setVilleArrivee('Rome');
-		$circuit->setDureeCircuit(4);
-		$manager->persist($circuit);
-		
-		$this->addReference('italie-circuit', $circuit);
-		
+		$jsonData = file_get_contents(__DIR__ . "/CircuitData.json");
+		$rawData = json_decode($jsonData);
+		foreach ($rawData as $circuitData){
+			$this->loadCircuit($circuitData, $manager);
+		}
 		$manager->flush();
 	}
-	
+
+	function loadCircuit($circuitData, ObjectManager $manager){
+		$circuit = new Circuit();
+		$circuit->setDescription($circuitData->description);
+		$circuit->setPaysDepart($circuitData->paysDepart);
+		$circuit->setVilleDepart($circuitData->villeDepart);
+		$circuit->setVilleArrivee($circuitData->villeArrivee);
+		$circuit->setDureeCircuit($circuitData->dureeCircuit);
+		$manager->persist($circuit);
+		$this->addReference($circuitData->name, $circuit);
+	}
 }
-// (1, 'Andalousie', 'Espagne', 'Grenade', 'Séville', 4),
-// (2, 'VietNam', 'VietNam', 'Hanoi', 'Hô Chi Minh', 4),
-// (3, 'Ile de France', 'France', 'Paris', 'Paris', 2),
-// (4, 'Italie', 'Italie', 'Milan', 'Rome', 4);
