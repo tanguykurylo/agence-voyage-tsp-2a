@@ -1,0 +1,31 @@
+[{
+        "circuit": "italie-circuit",
+        "dateDepart": "2018-08-19T13:15:00.000Z",
+        "nombrePersonnes": "3",
+        "prix": 12000
+    },
+    {
+        "circuit": "idf-circuit",
+        "dateDepart": "2018-09-23T08:30:00.000Z",
+        "nombrePersonnes": "6",
+        "prix": 699
+    },
+    {
+        "circuit": "andalousie-circuit",
+        "dateDepart": "2018-10-05T23:22:00.000Z",
+        "nombrePersonnes": "4",
+        "prix": 3799
+    },
+    {
+        "circuit": "vietnam-circuit",
+        "dateDepart": "2018-12-17T10:45:00.000Z",
+        "nombrePersonnes": "5",
+        "prix": 6499
+    },
+    {
+        "circuit": "italie-circuit",
+        "dateDepart": "2018-09-18T07:00:00.000Z",
+        "nombrePersonnes": "2",
+        "prix": 9000
+    }
+]
