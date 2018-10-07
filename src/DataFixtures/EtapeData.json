@@ -1,0 +1,57 @@
+[{
+        "circuit": "andalousie-circuit",
+        "etapes": [{
+            "ville": "Grenade",
+            "nombreJours": 1
+        }, {
+            "ville": "Cordoue",
+            "nombreJours": 2
+        }, {
+            "ville": "Séville",
+            "nombreJours": 1
+        }]
+    },
+    {
+        "circuit": "vitenam-circuit",
+        "etapes": [{
+            "ville": "Hanoï",
+            "nombreJours": 1
+        }, {
+            "ville": "Dà Nang",
+            "nombreJours": 1
+        }, {
+            "ville": "Hoï An",
+            "nombreJours": 1
+        }, {
+            "ville": "Hô Chi Minh",
+            "nombreJours": 1
+        }]
+    }, {
+        "circuit": "idf-circuit",
+        "etapes": [{
+            "ville": "Versailles",
+            "nombreJours": 1
+        }, {
+            "ville": "Paris",
+            "nombreJours": 1
+        }]
+    },
+    {
+        "circuit": "italie-circuit",
+        "etapes": [{
+                "ville": "Florence",
+                "nombreJours": 1
+            }, {
+                "ville": "Sienne",
+                "nombreJours": 1
+            }, {
+                "ville": "Pise",
+                "nombreJours": 1
+            },
+            {
+                "ville": "Rome",
+                "nombreJours": 1
+            }
+        ]
+    }
+]

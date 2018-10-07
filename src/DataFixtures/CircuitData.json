@@ -1,0 +1,33 @@
+[{
+        "name": "andalousie-circuit",
+        "description": "Andalousie",
+        "paysDepart": "Espagne",
+        "villeDepart": "Grenade",
+        "villeArrivée": "Séville",
+        "dureeCircuit": 4
+    },
+    {
+        "name": "vietnam-circuit",
+        "description": "Vietnam",
+        "paysDepart": "Vietnam",
+        "villeDepart": "Hanoi",
+        "villeArrivée": "Hô Chi Minh",
+        "dureeCircuit": 4
+    },
+    {
+        "name": "idf-circuit",
+        "description": "Ile-de-France",
+        "paysDepart": "France",
+        "villeDepart": "Paris",
+        "villeArrivée": "Paris",
+        "dureeCircuit": 2
+    },
+    {
+        "name": "italie-circuit",
+        "description": "Italie",
+        "paysDepart": "Italie",
+        "villeDepart": "Milan",
+        "villeArrivée": "Rome",
+        "dureeCircuit": 4
+    }
+]
