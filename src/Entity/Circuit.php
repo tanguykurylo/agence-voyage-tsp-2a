@@ -48,9 +48,15 @@ class Circuit
      */
     private $etapes;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\ProgrammationCircuit", mappedBy="circuit")
+     */
+    private $programmations;
+
     public function __construct()
     {
         $this->etapes = new ArrayCollection();
+        $this->programmations = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -143,6 +149,37 @@ class Circuit
             // set the owning side to null (unless already changed)
             if ($etape->getCircuit() === $this) {
                 $etape->setCircuit(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|ProgrammationCircuit[]
+     */
+    public function getProgrammations(): Collection
+    {
+        return $this->programmations;
+    }
+
+    public function addProgrammation(ProgrammationCircuit $programmation): self
+    {
+        if (!$this->programmations->contains($programmation)) {
+            $this->programmations[] = $programmation;
+            $programmation->setCircuit($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProgrammation(ProgrammationCircuit $programmation): self
+    {
+        if ($this->programmations->contains($programmation)) {
+            $this->programmations->removeElement($programmation);
+            // set the owning side to null (unless already changed)
+            if ($programmation->getCircuit() === $this) {
+                $programmation->setCircuit(null);
             }
         }
 
