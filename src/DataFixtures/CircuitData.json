@@ -29,5 +29,13 @@
         "villeDepart": "Milan",
         "villeArrivee": "Rome",
         "dureeCircuit": 4
+    },
+    {
+        "name": "usa-cote-est-circuit",
+        "description": "Etats-Unis: côte Est",
+        "paysDepart": "Etats-Unis",
+        "villeDepart": "New York",
+        "villeArrivee": "New Orleans",
+        "dureeCircuit": 6
     }
 ]

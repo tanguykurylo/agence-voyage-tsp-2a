@@ -53,5 +53,23 @@
                 "nombreJours": 1
             }
         ]
+    },
+    {
+        "circuit": "usa-cote-est-circuit",
+        "etapes": [{
+                "ville": "New York",
+                "nombreJours": 2
+            }, {
+                "ville": "Washington DC",
+                "nombreJours": 1
+            }, {
+                "ville": "Orlando",
+                "nombreJours": 1
+            },
+            {
+                "ville": "New Orleans",
+                "nombreJours": 2
+            }
+        ]
     }
 ]
