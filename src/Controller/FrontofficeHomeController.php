@@ -6,6 +6,7 @@ use App\Entity\Circuit;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 
 /**
@@ -24,7 +25,7 @@ class FrontofficeHomeController extends Controller
         dump($circuits);
         $programmedCircuits = [];
         foreach ($circuits as $circuit){
-            if(!$circuit->getProgrammations()->isEmpty()){
+            if(!$circuit->isProgrammed()){
                 array_push($programmedCircuits, $circuit);
             }
         }
@@ -42,6 +43,9 @@ class FrontofficeHomeController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $circuit = $em->getRepository(Circuit::class)->find($id);
+        if(!$circuit || !$circuit->isProgrammed()){
+            throw new NotFoundHttpException("Page not found");
+        }
         dump($circuit);
         return $this->render('front/circuit_show.html.twig', [
             'circuit' => $circuit,
