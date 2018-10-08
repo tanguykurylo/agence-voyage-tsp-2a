@@ -22,8 +22,14 @@ class FrontofficeHomeController extends Controller
         $em = $this->getDoctrine()->getManager();
         $circuits = $em->getRepository(Circuit::class)->findAll();
         dump($circuits);
+        $programmedCircuits = [];
+        foreach ($circuits as $circuit){
+            if(!$circuit->getProgrammations()->isEmpty()){
+                array_push($programmedCircuits, $circuit);
+            }
+        }
         return $this->render('front/home.html.twig', [
-            'circuits' => $circuits, 
+            'circuits' => $programmedCircuits, 
         ]);
     }
 
