@@ -185,4 +185,9 @@ class Circuit
 
         return $this;
     }
+
+    public function isProgrammed(): ?bool
+    {
+        return !$this->programmations->isEmpty();
+    }
 }
