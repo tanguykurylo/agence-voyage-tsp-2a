@@ -14,3 +14,9 @@
 ###> symfony/web-server-bundle ###
 /.web-server-pid
 ###< symfony/web-server-bundle ###
+
+###>Visual Studio Code parameters ###
+/.vscode
+###<Visual Studio Code parameters ###
+
+
