@@ -7,6 +7,7 @@
 
 {{ dump(circuit) }}
 
+<h2>Etapes du circuit</h2>
 <table>
     <thead>
         <tr>
@@ -23,6 +24,25 @@
             <td>{{ etape.nombreJours }}</td>
         </tr>
         {% endfor %} {# etapes #}
+</table>
+
+<h2>Programmations</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Date de départ</th>
+            <th>Nombre de personnes</th>
+            <th>Prix</th>
+        </tr>
+    </thead>
+
+    {%  for programmation in circuit.programmations %}
+        <tr>
+            <td>{{ programmation.dateDepart|date("d/m/Y") }}</td>
+            <td>{{ programmation.nombrePersonnes }}</td>
+            <td>{{ programmation.prix }}€</td>
+        </tr>
+        {% endfor %} {# programmations #}
 </table>
 
 
