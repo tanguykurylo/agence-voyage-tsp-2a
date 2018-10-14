@@ -25,7 +25,7 @@ class FrontofficeHomeController extends Controller
         dump($circuits);
         $programmedCircuits = [];
         foreach ($circuits as $circuit){
-            if(!$circuit->isProgrammed()){
+            if($circuit->isProgrammed()){
                 array_push($programmedCircuits, $circuit);
             }
         }
