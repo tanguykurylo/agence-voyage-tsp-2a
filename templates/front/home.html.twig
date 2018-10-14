@@ -1,39 +1,37 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}{% endblock %}
 {% block title %}Circuit index{% endblock %}
 
 {% block main %}
-    <h1>Circuit index</h1>
+    <div class="container">
 
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Description</th>
-                <th>Pays de départ</th>
-                <th>Ville de Départ</th>
-                <th>Ville d'Arrivée</th>
-                <th>Durée du circuit</th>
-                <th> &nbsp;</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for circuit in circuits %}
-            <tr>
-                <td>{{ circuit.id }}</td>
-                <td>{{ circuit.description }}</td>
-                <td>{{ circuit.paysDepart }}</td>
-                <td>{{ circuit.villeDepart }}</td>
-                <td>{{ circuit.villeArrivee }}</td>
-                <td>{{ circuit.dureeCircuit ? circuit.dureeCircuit: '' }}</td>
-                <td><a href="{{ path('front_circuit_show', {id: circuit.id}) }}">détails</a></td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="2">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-    
+        <h1>Circuit index</h1>
+
+        <div class="row">
+
+            {% for circuit in circuits %}
+                <div class="col-sm-4">
+                    <div class="card">
+                        <img class="card-img-top" src="https://via.placeholder.com/350x250" alt="Card image">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ circuit.description }}</h5>
+                            <p class="card-text">
+                                {{ circuit.paysDepart }}
+                                :
+                                {{ circuit.dureeCircuit ? circuit.dureeCircuit: '' }}
+                                jours depuis
+                                {{ circuit.villeDepart }}
+                                jusqu'à
+                                {{ circuit.villeArrivee}}
+                            </p>
+                            <a href="{{ path('front_circuit_show', {id: circuit.id}) }}" class="btn btn-primary">DÉTAILS</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
 {% endblock %}
