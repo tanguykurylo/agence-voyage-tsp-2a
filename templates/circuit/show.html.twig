@@ -1,38 +1,54 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Circuit{% endblock %}
+{% block title %}Circuit
+    {{ circuit.id}}
+{% endblock %}
 
-{% block body %}
-    <h1>Circuit</h1>
+{% block main %}
+    <h1>Circuit
+        {{circuit.id}}</h1>
 
-    <table class="table">
-        <tbody>
+    {{ dump(circuit) }}
+
+    <h2>Etapes du circuit</h2>
+    <table class="table table-hover">
+        <thead>
             <tr>
-                <th>Id</th>
-                <td>{{ circuit.id }}</td>
+                <th>Numéro</th>
+                <th>Ville</th>
+                <th>Nombre de jours</th>
             </tr>
+        </thead>
+
+        {% for etape in circuit.etapes %}
             <tr>
-                <th>Description</th>
-                <td>{{ circuit.description }}</td>
+                <td>{{ etape.numeroEtape }}</td>
+                <td>{{ etape.villeEtape }}</td>
+                <td>{{ etape.nombreJours }}</td>
             </tr>
-            <tr>
-                <th>PaysDepart</th>
-                <td>{{ circuit.paysDepart }}</td>
-            </tr>
-            <tr>
-                <th>VilleDepart</th>
-                <td>{{ circuit.villeDepart }}</td>
-            </tr>
-            <tr>
-                <th>VilleArrivee</th>
-                <td>{{ circuit.villeArrivee }}</td>
-            </tr>
-            <tr>
-                <th>DureeCircuit</th>
-                <td>{{ circuit.dureeCircuit }}</td>
-            </tr>
-        </tbody>
+        {% endfor %}
+        {# etapes #}
     </table>
 
-    <a href="{{ path('circuit_index') }}">back to list</a>
+    <h2>Programmations</h2>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Date de départ</th>
+                <th>Nombre de personnes</th>
+                <th>Prix</th>
+            </tr>
+        </thead>
+
+        {% for programmation in circuit.programmations %}
+            <tr>
+                <td>{{ programmation.dateDepart|date("d/m/Y") }}</td>
+                <td>{{ programmation.nombrePersonnes }}</td>
+                <td>{{ programmation.prix }}€</td>
+            </tr>
+        {% endfor %}
+        {# programmations #}
+    </table>
+
+    <a href="{{ path('frontoffice_home') }}">retour à l'accueil</a>
 {% endblock %}
