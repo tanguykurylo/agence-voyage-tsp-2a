@@ -37,5 +37,13 @@
         "villeDepart": "New York",
         "villeArrivee": "New Orleans",
         "dureeCircuit": 6
+    },
+    {
+        "name": "usa-cote-ouest-circuit",
+        "description": "Etats-Unis: côte Ouest",
+        "paysDepart": "Etats-Unis",
+        "villeDepart": "San Francisco",
+        "villeArrivee": "Las Vegas",
+        "dureeCircuit": 3
     }
 ]

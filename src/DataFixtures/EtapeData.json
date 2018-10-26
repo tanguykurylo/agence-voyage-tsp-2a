@@ -71,5 +71,15 @@
                 "nombreJours": 2
             }
         ]
+    },
+    {
+        "circuit": "usa-cote-ouest-circuit",
+        "etapes": [{
+            "ville": "San Francisco",
+            "nombreJours": 1
+        }, {
+            "ville": "Las Vegas",
+            "nombreJours": 2
+        }]
     }
 ]
