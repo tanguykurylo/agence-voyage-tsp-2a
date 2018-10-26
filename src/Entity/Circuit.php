@@ -190,4 +190,9 @@ class Circuit
     {
         return !$this->programmations->isEmpty();
     }
+
+    public function __toString() {
+        $circuitstring = "Circuit " . (string) $this->getId() . " (" . $this->getPaysDepart() .") : " . $this->getVilleDepart()  . " -> " . $this->getVilleArrivee();
+        return $circuitstring;
+    }
 }
