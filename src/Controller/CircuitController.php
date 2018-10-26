@@ -19,15 +19,34 @@ class CircuitController extends AbstractController
      * @Route("/", name="circuit_index", methods="GET")
      */
     public function index(CircuitRepository $circuitRepository): Response
-    {
-        return $this->render('circuit/index.html.twig', ['circuits' => $circuitRepository->findAll()]);
+    {   
+        $em = $this->getDoctrine()->getManager();
+        $circuits = $em->getRepository(Circuit::class)->findAll();
+        dump($circuits);
+        $programmedCircuits = [];
+        foreach ($circuits as $circuit){
+            if($circuit->isProgrammed()){
+                array_push($programmedCircuits, $circuit);
+            }
+        }
+        return $this->render('front/home.html.twig', [
+            'circuits' => $programmedCircuits, 
+        ]);
     }
 
     /**
      * @Route("/{id}", name="circuit_show", methods="GET")
      */
-    public function show(Circuit $circuit): Response
+    public function circuitShow($id)
     {
-        return $this->render('circuit/show.html.twig', ['circuit' => $circuit]);
+        $em = $this->getDoctrine()->getManager();
+        $circuit = $em->getRepository(Circuit::class)->find($id);
+        if(!$circuit || !$circuit->isProgrammed()){
+            throw new NotFoundHttpException("Page not found");
+        }
+        dump($circuit);
+        return $this->render('circuit/show.html.twig', [
+            'circuit' => $circuit,
+        ]);
     }
 }
