@@ -112,6 +112,9 @@ class Circuit
         return $this;
     }
 
+    //TODO: Change the getter dureeCircuit to return the sum of the legth in days of each Etape
+    //Should the CRUD interface be changed accordingly?
+    //Maybe make update it with the console command 'bin/console make:crud' ?
     public function getDureeCircuit(): ?int
     {
         return $this->dureeCircuit;
