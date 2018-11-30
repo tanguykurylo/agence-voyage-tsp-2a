@@ -23,15 +23,21 @@ class CircuitController extends AbstractController
     {   
         $em = $this->getDoctrine()->getManager();
         $circuits = $em->getRepository(Circuit::class)->findAll();
-        dump($circuits);
         $programmedCircuits = [];
         foreach ($circuits as $circuit){
             if($circuit->isProgrammed()){
                 array_push($programmedCircuits, $circuit);
             }
         }
+        $likes = $this->get('session')->get('likes');
+        if($likes == NULL){
+            $this->get('session')->set('likes', []);
+            $likes = $this->get('session')->get('likes');
+        }
+        
         return $this->render('front/home.html.twig', [
             'circuits' => $programmedCircuits, 
+            'likes' => $likes
         ]);
     }
 

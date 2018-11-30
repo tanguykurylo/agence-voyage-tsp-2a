@@ -1,0 +1,5 @@
+#greeting-jumbo {
+    background-image: url("/images/banner.jpg");
+    background-size: cover;
+    background-position: 50% 0%;
+}

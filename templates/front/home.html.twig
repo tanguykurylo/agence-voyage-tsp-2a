@@ -1,6 +1,8 @@
 {% extends 'base.html.twig' %}
 
-{% block stylesheets %}{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="/css/home.css">
+{% endblock %}
 {% block title %}Circuit index{% endblock %}
 
 {% block main %}
@@ -11,9 +13,16 @@
         <div class="row">
 
             {% for circuit in circuits %}
+                {% if circuit.id in likes %}
+                    {% set classes = 'btn btn-danger' %}
+                    {% set like_text = 'LIKED' %}
+                {% else %}
+                    {% set classes = 'btn btn-outline-danger' %}
+                    {% set like_text = 'LIKE' %}
+                {% endif %}
                 <div class="col-sm-4">
                     <div class="card">
-                        <img class="card-img-top" src="https://via.placeholder.com/350x250" alt="Card image">
+                        <img class="card-img-top" src="/images/circuits/{{circuit.photo}}" alt="Photo {{circuit.description}}">
                         <div class="card-body">
                             <h5 class="card-title">{{ circuit.description }}</h5>
                             <p class="card-text">
@@ -26,11 +35,11 @@
                                 {{ circuit.villeArrivee}}
                             </p>
                             <a href="{{ path('circuit_show', {id: circuit.id}) }}" class="btn btn-primary">DÉTAILS</a>
+                            <a href="{{ path('like', {circuitID: circuit.id}) }}" class="{{classes}}">{{like_text}}</a>
                         </div>
                     </div>
                 </div>
             {% endfor %}
-
         </div>
     </div>
 </div>

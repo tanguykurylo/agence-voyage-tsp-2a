@@ -53,6 +53,11 @@ class Circuit
      */
     private $programmations;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $photo;
+
     public function __construct()
     {
         $this->etapes = new ArrayCollection();
@@ -197,5 +202,17 @@ class Circuit
     public function __toString() {
         $circuitstring = "Circuit " . (string) $this->getId() . " (" . $this->getPaysDepart() .") : " . $this->getVilleDepart()  . " -> " . $this->getVilleArrivee();
         return $circuitstring;
+    }
+
+    public function getPhoto(): ?string
+    {
+        return $this->photo;
+    }
+
+    public function setPhoto(?string $photo): self
+    {
+        $this->photo = $photo;
+
+        return $this;
     }
 }
