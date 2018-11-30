@@ -1,0 +1,33 @@
+[{
+        "username": "anna_admin",
+        "role": "ROLE_ADMIN",
+        "firstName": "anna",
+        "lastName": "admin",
+        "email": "annaadmin@lol.com",
+        "password": "lol"
+    },
+    {
+        "username": "john_user",
+        "role": "ROLE_USER",
+        "firstName": "john",
+        "lastName": "user",
+        "email": "johnuser@lol.com",
+        "password": "lol"
+    },
+    {
+        "username": "test",
+        "role": "ROLE_USER",
+        "firstName": "test",
+        "lastName": "test",
+        "email": "test@test.com",
+        "password": "test"
+    },
+    {
+        "username": "lol",
+        "role": "ROLE_USER",
+        "firstName": "lol",
+        "lastName": "lol",
+        "email": "lol@lol.com",
+        "password": "lol"
+    }
+]
