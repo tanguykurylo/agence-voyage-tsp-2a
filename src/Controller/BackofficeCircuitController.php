@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use App\Entity\Circuit;
 use App\Form\CircuitType;
+use App\Entity\Etape;
+use App\Form\EtapeType;
 use App\Repository\CircuitRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -51,7 +53,11 @@ class BackofficeCircuitController extends AbstractController
      */
     public function show(Circuit $circuit): Response
     {
-        return $this->render('back/circuit/show.html.twig', ['circuit' => $circuit]);
+        $etapes = $circuit->getEtapes();
+        return $this->render('back/circuit/show.html.twig', [
+            'circuit' => $circuit,
+            'etapes' => $etapes
+        ]);
     }
 
     /**
@@ -86,5 +92,29 @@ class BackofficeCircuitController extends AbstractController
         }
 
         return $this->redirectToRoute('back/circuit_index');
+    }
+
+     /**
+     * @Route("/{id}/addetape", name="back/circuit_add_etape", methods="GET|POST")
+    */
+    public function addEtape(Request $request, Circuit $circuit): Response
+    {
+        $etape = new Etape();
+        $form = $this->createForm(EtapeType::class, $etape);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $circuit->addEtape($etape);
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($etape);
+            $em->flush();
+            return $this->redirectToRoute('back/circuit_index');
+        }
+
+        return $this->render('back/etape/new.html.twig', [
+            'circuit' => $circuit,
+            'etape' => $etape,
+            'form' => $form->createView(),
+        ]);
     }
 }
