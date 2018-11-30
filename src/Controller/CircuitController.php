@@ -8,7 +8,9 @@ use App\Repository\CircuitRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 /**
  * @Route("/circuit")
@@ -35,12 +37,12 @@ class CircuitController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="circuit_show", methods="GET")
-     */
-    public function circuitShow($id)
+     * @Route("/{id}", name="circuit_show")
+     * @ParamConverter("circuit", options={"id" = "circuit_id"})
+     * @Method("GET")
+     **/
+    public function circuitShow(Circuit $circuit)
     {
-        $em = $this->getDoctrine()->getManager();
-        $circuit = $em->getRepository(Circuit::class)->find($id);
         if(!$circuit || !$circuit->isProgrammed()){
             throw new NotFoundHttpException("Page not found");
         }
