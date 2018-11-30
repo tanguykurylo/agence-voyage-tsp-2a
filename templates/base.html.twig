@@ -25,8 +25,26 @@
                     </li>
                 </ul>
                 <ul class="navbar-nav my-2 my-lg-0">
+                    {% if is_granted("ROLE_ADMIN") %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('back/circuit_index') }}">
+                                Circuits
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('back/etape_index') }}">
+                                Etapes
+                            </a>
+                        </li>
+                    {% endif %}
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Login</a>
+                        <a class="nav-link" href="{{ path('fos_user_security_login') }}">
+                            {% if app.user %}
+                                {{ app.user.username }}
+                            {% else %}
+                                Login
+                            {% endif %}
+                        </a>
                     </li>
                 </ul>
             </div>
