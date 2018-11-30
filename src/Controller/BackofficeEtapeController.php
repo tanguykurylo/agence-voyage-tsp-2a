@@ -16,7 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class BackofficeEtapeController extends AbstractController
 {
     /**
-     * @Route("/", name="admin_etape_index", methods="GET")
+     * @Route("/", name="back/etape_index", methods="GET")
      */
     public function index(EtapeRepository $etapeRepository): Response
     {
@@ -24,7 +24,7 @@ class BackofficeEtapeController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="admin_etape_new", methods="GET|POST")
+     * @Route("/new", name="back/etape_new", methods="GET|POST")
      */
     public function new(Request $request): Response
     {
@@ -37,7 +37,7 @@ class BackofficeEtapeController extends AbstractController
             $em->persist($etape);
             $em->flush();
 
-            return $this->redirectToRoute('admin_etape_index');
+            return $this->redirectToRoute('back/etape_index');
         }
 
         return $this->render('back/etape/new.html.twig', [
@@ -47,7 +47,7 @@ class BackofficeEtapeController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="admin_etape_show", methods="GET")
+     * @Route("/{id}", name="back/etape_show", methods="GET")
      */
     public function show(Etape $etape): Response
     {
@@ -55,7 +55,7 @@ class BackofficeEtapeController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="admin_etape_edit", methods="GET|POST")
+     * @Route("/{id}/edit", name="back/etape_edit", methods="GET|POST")
      */
     public function edit(Request $request, Etape $etape): Response
     {
@@ -65,7 +65,7 @@ class BackofficeEtapeController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('admin_etape_edit', ['id' => $etape->getId()]);
+            return $this->redirectToRoute('back/etape_edit', ['id' => $etape->getId()]);
         }
 
         return $this->render('back/etape/edit.html.twig', [
@@ -75,7 +75,7 @@ class BackofficeEtapeController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="admin_etape_delete", methods="DELETE")
+     * @Route("/{id}", name="back/etape_delete", methods="DELETE")
      */
     public function delete(Request $request, Etape $etape): Response
     {
@@ -85,6 +85,6 @@ class BackofficeEtapeController extends AbstractController
             $em->flush();
         }
 
-        return $this->redirectToRoute('admin_etape_index');
+        return $this->redirectToRoute('back/etape_index');
     }
 }
