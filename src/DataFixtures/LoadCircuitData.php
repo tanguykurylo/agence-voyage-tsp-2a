@@ -25,7 +25,7 @@ class LoadCircuitData extends Fixture
 		$circuit->setVilleDepart($circuitData->villeDepart);
 		$circuit->setVilleArrivee($circuitData->villeArrivee);
 		$circuit->setDureeCircuit($circuitData->dureeCircuit);
-		$circuit->setPhoto($circuitData->photo);
+		$circuit->setadressePhoto($circuitData->adressePhoto);
 		$manager->persist($circuit);
 		$this->addReference($circuitData->name, $circuit);
 	}

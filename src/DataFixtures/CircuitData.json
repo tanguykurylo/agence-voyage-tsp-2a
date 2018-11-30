@@ -5,7 +5,7 @@
         "villeDepart": "Grenade",
         "villeArrivee": "Séville",
         "dureeCircuit": 4,
-        "photo": "andalousie.jpg"
+        "adressePhoto": "andalousie.jpg"
     },
     {
         "name": "vietnam-circuit",
@@ -14,7 +14,7 @@
         "villeDepart": "Hanoi",
         "villeArrivee": "Hô Chi Minh",
         "dureeCircuit": 4,
-        "photo": "vietnam.jpg"
+        "adressePhoto": "vietnam.jpg"
     },
     {
         "name": "idf-circuit",
@@ -23,7 +23,7 @@
         "villeDepart": "Paris",
         "villeArrivee": "Paris",
         "dureeCircuit": 2,
-        "photo": "paris.jpg"
+        "adressePhoto": "paris.jpg"
     },
     {
         "name": "italie-circuit",
@@ -32,7 +32,7 @@
         "villeDepart": "Milan",
         "villeArrivee": "Rome",
         "dureeCircuit": 4,
-        "photo": "italie.jpg"
+        "adressePhoto": "italie.jpg"
     },
     {
         "name": "usa-cote-est-circuit",
@@ -41,7 +41,7 @@
         "villeDepart": "New York",
         "villeArrivee": "New Orleans",
         "dureeCircuit": 6,
-        "photo": "usa-est.jpg"
+        "adressePhoto": "usa-est.jpg"
     },
     {
         "name": "usa-cote-ouest-circuit",
@@ -50,6 +50,6 @@
         "villeDepart": "San Francisco",
         "villeArrivee": "Las Vegas",
         "dureeCircuit": 3,
-        "photo": "usa-ouest.jpg"
+        "adressePhoto": "usa-ouest.jpg"
     }
 ]

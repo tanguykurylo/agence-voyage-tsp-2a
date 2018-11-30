@@ -56,7 +56,7 @@ class Circuit
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $photo;
+    private $adressePhoto;
 
     public function __construct()
     {
@@ -204,14 +204,14 @@ class Circuit
         return $circuitstring;
     }
 
-    public function getPhoto(): ?string
+    public function getadressePhoto(): ?string
     {
-        return $this->photo;
+        return $this->adressePhoto;
     }
 
-    public function setPhoto(?string $photo): self
+    public function setadressePhoto(?string $adressePhoto): self
     {
-        $this->photo = $photo;
+        $this->adressePhoto = $adressePhoto;
 
         return $this;
     }

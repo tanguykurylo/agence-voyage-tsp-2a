@@ -35,7 +35,7 @@ class CircuitController extends AbstractController
             $likes = $this->get('session')->get('likes');
         }
         
-        return $this->render('front/home.html.twig', [
+        return $this->render('front/circuits.html.twig', [
             'circuits' => $programmedCircuits, 
             'likes' => $likes
         ]);
@@ -51,7 +51,7 @@ class CircuitController extends AbstractController
             throw new NotFoundHttpException("Page not found");
         }
         dump($circuit);
-        return $this->render('circuit/show.html.twig', [
+        return $this->render('front/circuit_show.html.twig', [
             'circuit' => $circuit,
         ]);
     }

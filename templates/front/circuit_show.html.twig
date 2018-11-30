@@ -1,50 +1,52 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Circuit {{ circuit.id}}{% endblock %}
+{% block title %}Circuit
+    {{ circuit.id}}
+{% endblock %}
 
 {% block main %}
-<h1>Circuit {{circuit.id}}</h1>
+    <h1>Circuit
+        {{circuit.id}}</h1>
 
-{{ dump(circuit) }}
+    <h2>Etapes du circuit</h2>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Numéro</th>
+                <th>Ville</th>
+                <th>Nombre de jours</th>
+            </tr>
+        </thead>
 
-<h2>Etapes du circuit</h2>
-<table class="table table-hover">
-    <thead>
-        <tr>
-            <th>Numéro</th>
-            <th>Ville</th>
-            <th>Nombre de jours</th>
-        </tr>
-    </thead>
+        {% for etape in circuit.etapes %}
+            <tr>
+                <td>{{ etape.numeroEtape }}</td>
+                <td>{{ etape.villeEtape }}</td>
+                <td>{{ etape.nombreJours }}</td>
+            </tr>
+        {% endfor %}
+        {# etapes #}
+    </table>
 
-    {%  for etape in circuit.etapes %}
-        <tr>
-            <td>{{ etape.numeroEtape }}</td>
-            <td>{{ etape.villeEtape }}</td>
-            <td>{{ etape.nombreJours }}</td>
-        </tr>
-        {% endfor %} {# etapes #}
-</table>
+    <h2>Programmations</h2>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Date de départ</th>
+                <th>Nombre de personnes</th>
+                <th>Prix</th>
+            </tr>
+        </thead>
 
-<h2>Programmations</h2>
-<table class="table table-hover">
-    <thead>
-        <tr>
-            <th>Date de départ</th>
-            <th>Nombre de personnes</th>
-            <th>Prix</th>
-        </tr>
-    </thead>
+        {% for programmation in circuit.programmations %}
+            <tr>
+                <td>{{ programmation.dateDepart|date("d/m/Y") }}</td>
+                <td>{{ programmation.nombrePersonnes }}</td>
+                <td>{{ programmation.prix }}€</td>
+            </tr>
+        {% endfor %}
+        {# programmations #}
+    </table>
 
-    {%  for programmation in circuit.programmations %}
-        <tr>
-            <td>{{ programmation.dateDepart|date("d/m/Y") }}</td>
-            <td>{{ programmation.nombrePersonnes }}</td>
-            <td>{{ programmation.prix }}€</td>
-        </tr>
-        {% endfor %} {# programmations #}
-</table>
-
-
-<a href="{{ path('frontoffice_home') }}">retour à l'accueil</a>
+    <a href="{{ path('frontoffice_home') }}">retour à l'accueil</a>
 {% endblock %}
