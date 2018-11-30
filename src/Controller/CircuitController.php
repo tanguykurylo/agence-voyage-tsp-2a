@@ -10,7 +10,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 /**
  * @Route("/circuit")
@@ -38,7 +37,6 @@ class CircuitController extends AbstractController
 
     /**
      * @Route("/{id}", name="circuit_show")
-     * @ParamConverter("circuit", options={"id" = "circuit_id"})
      * @Method("GET")
      **/
     public function circuitShow(Circuit $circuit)
